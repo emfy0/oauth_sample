@@ -1,0 +1,34 @@
+
+<div>
+  <h2 class="text-xxl">
+    Create a new client
+  </h2>
+
+  <.simple_form for={@client_form} phx-submit="create_client">
+    <.input field={@client_form[:name]} label="Name" />
+    <.input field={@client_form[:callback_url]} label="Callback URL" />
+    <:actions>
+      <.button>Create</.button>
+    </:actions>
+  </.simple_form>
+</div>
+
+
+<h3 class="text-xl mt-5"> Available clients</h3>
+
+<table class="table-auto">
+  <thead>
+    <tr>
+      <th class="px-4 py-2">Name</th>
+      <th class="px-4 py-2">ID</th>
+      <th class="px-4 py-2">Callback URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr :for={client <- @clients}>
+      <td class="border px-4 py-2"><%= client.name %></td>
+      <td class="border px-4 py-2"><%= client.id %></td>
+      <td class="border px-4 py-2"><%= client.callback_url %></td>
+    </tr>
+  </tbody>
+</table>

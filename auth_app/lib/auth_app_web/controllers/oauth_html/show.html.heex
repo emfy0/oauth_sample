@@ -1,0 +1,9 @@
+<h1 class="text-2xl font-bold">
+  Allow access to your account?
+</h1>
+
+<.simple_form for={%{}} action={~p"/oauth?client_id=#{@client}"}>
+  <:actions>
+    <.button>Allow</.button>
+  </:actions>
+</.simple_form>
